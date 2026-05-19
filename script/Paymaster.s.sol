@@ -23,7 +23,7 @@ contract PaymasterDeploy is Script {
 		Paymaster implementation = new Paymaster();
 
 		// Prepare initialization data
-		bytes memory initData = abi.encodeCall(Paymaster.initialize, (owner,sponsor, addresses));
+		bytes memory initData = abi.encodeCall(Paymaster.initialize, (owner, sponsor, addresses));
 
 		// Prepare the creation code for the proxy
 		bytes memory proxyBytecode = abi.encodePacked(
@@ -31,7 +31,7 @@ contract PaymasterDeploy is Script {
 			abi.encode(address(implementation), initData)
 		);
 
-		bytes32 salt = keccak256(abi.encodePacked("PAYMASTER_BPAY_2"));
+		bytes32 salt = keccak256(abi.encodePacked("PAYMASTER_SFLUV_1"));
 
 		// Deploy the proxy using Create2
 		address proxyAddress = Create2(vm.envAddress("CREATE2_FACTORY_ADDRESS")).deploy(salt, proxyBytecode);

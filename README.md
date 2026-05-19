@@ -74,19 +74,19 @@ $ cast --help
 # Create2
 
 ```shell
-forge create --rpc-url $GNOSIS_MAINNET_RPC_URL --private-key $PRIVATE_KEY src/Create2/Create2.sol:Create2
+forge create --rpc-url $BERACHAIN_MAINNET_RPC_URL --private-key $PRIVATE_KEY src/Create2/Create2.sol:Create2
 ```
 
 Add `--broadcast` to the end of the following the actually publish.
 
 # Token
 ```shell
-$ forge script script/UpgradeableCommunityToken.s.sol:UpgradeableCommunityTokenScript --sig "deploy(address[], string, string)" "[0xc7f0faE75ff61A28A6CC48C168469Bc5A0Ee39bd]" "DAO Brussels" "DAOB" --rpc-url $GNOSIS_MAINNET_RPC_URL --etherscan-api-key $GNOSIS_MAINNET_ETHERSCAN_API_KEY --verify --verifier-url $GNOSIS_ETHERSCAN_VERIFIER_URL --private-key $PRIVATE_KEY 
+$ forge script script/UpgradeableCommunityToken.s.sol:UpgradeableCommunityTokenScript --sig "deploy(address[], string, string)" "[0x0a209fd139815498597076Fe91B5F0c727E304C6]" "Uccle Europe Basketball" "UEB" --rpc-url $GNOSIS_MAINNET_RPC_URL --verify --verifier etherscan --etherscan-api-key $ETHEREUM_MAINNET_ETHERSCAN_API_KEY --private-key $PRIVATE_KEY
 ```
 
 # Community Module
 ```shell
-$ forge script script/CommunityModule.s.sol:CommunityModuleScript --sig "deploy()" --rpc-url $GNOSIS_MAINNET_RPC_URL --etherscan-api-key $GNOSIS_MAINNET_ETHERSCAN_API_KEY --verify --verifier-url $GNOSIS_ETHERSCAN_VERIFIER_URL --private-key $PRIVATE_KEY 
+$ forge script script/CommunityModule.s.sol:CommunityModuleScript --sig "deploy()" --rpc-url $BERACHAIN_MAINNET_RPC_URL --verify --verifier etherscan --etherscan-api-key $ETHEREUM_MAINNET_ETHERSCAN_API_KEY --private-key $PRIVATE_KEY 
 ```
 
 # Community Module Upgrade (v2)
@@ -101,22 +101,27 @@ $ forge script script/CommunityAndPaymaster.s.sol:CommunityAndPaymasterModuleScr
 
 # Paymaster
 ```shell
-$ forge script script/Paymaster.s.sol:PaymasterDeploy --sig "deploy(address,address[])" 0xAD364095327753CC338e7cDF9752e039F51676F8 "[0x77917475e63E6f4e6966169E66c8FaB7dC891772,0x1371907cfe89Dc5022a3cB99ffBc4d7430f760cE,0xBA861e2DABd8316cf11Ae7CdA101d110CF581f28]" --rpc-url $CELO_MAINNET_RPC_URL --etherscan-api-key $CELO_MAINNET_ETHERSCAN_API_KEY --verify --verifier-url $CELO_ETHERSCAN_VERIFIER_URL --private-key $PRIVATE_KEY --broadcast
+$ forge script script/Paymaster.s.sol:PaymasterDeploy --sig "deploy(address,address,address[])" 0x49a44Fb70522f4084F4a7ACAb5FFb40A3d14B427  0x49a44Fb70522f4084F4a7ACAb5FFb40A3d14B427 "[0x6f1e3eDB0c7885E899b47EbDD2F0427432705eb3,0x73A6aa265E999E74bC1EDB14f3c330aD3f029761,0xBA861e2DABd8316cf11Ae7CdA101d110CF581f28,0xE2F3DC3E638113b9496060349e5332963d9C1152]" --rpc-url $GNOSIS_MAINNET_RPC_URL --verify --verifier etherscan --etherscan-api-key $ETHEREUM_MAINNET_ETHERSCAN_API_KEY --private-key $PRIVATE_KEY --broadcast
+```
+
+# Paymaster (no whitelist — backend enforces target allowlisting)
+```shell
+$ forge script script/PaymasterNoWhitelist.s.sol:PaymasterNoWhitelistDeploy --sig "deploy(address,address)" 0xd87172d9335B0082A41DD9c60168393Bdd72443d 0xd87172d9335B0082A41DD9c60168393Bdd72443d --rpc-url $BASE_MAINNET_RPC_URL --verify --verifier etherscan --etherscan-api-key $ETHEREUM_MAINNET_ETHERSCAN_API_KEY --private-key $PRIVATE_KEY --broadcast
 ```
 
 # Account Factory
 ```shell
-$ forge script script/AccountFactory.s.sol:AccountFactoryScript --sig "deploy(address)" 0x7079253c0358eF9Fd87E16488299Ef6e06F403B6 --rpc-url $GNOSIS_MAINNET_RPC_URL --etherscan-api-key $GNOSIS_MAINNET_ETHERSCAN_API_KEY --verify --verifier-url $GNOSIS_ETHERSCAN_VERIFIER_URL --private-key $PRIVATE_KEY 
+$ forge script script/AccountFactory.s.sol:AccountFactoryScript --sig "deploy(address)" 0x7079253c0358eF9Fd87E16488299Ef6e06F403B6 --rpc-url $BERACHAIN_MAINNET_RPC_URL --verify --verifier etherscan --etherscan-api-key $ETHEREUM_MAINNET_ETHERSCAN_API_KEY --private-key $PRIVATE_KEY 
 ```
 
 # Card Manager
 ```shell
-$ forge script script/CardManagerModule.s.sol:CardManagerModuleScript --sig "deploy(address)" 0x7079253c0358eF9Fd87E16488299Ef6e06F403B6 --rpc-url $ARBITRUM_MAINNET_RPC_URL --etherscan-api-key $ARBITRUM_MAINNET_ETHERSCAN_API_KEY --verify --verifier-url $ARBITRUM_ETHERSCAN_VERIFIER_URL --private-key $PRIVATE_KEY 
+$ forge script script/CardManagerModule.s.sol:CardManagerModuleScript --sig "deploy(address)" 0x7079253c0358eF9Fd87E16488299Ef6e06F403B6 --rpc-url $BERACHAIN_MAINNET_RPC_URL --verify --verifier etherscan --etherscan-api-key $ETHEREUM_MAINNET_ETHERSCAN_API_KEY --private-key $PRIVATE_KEY 
 ```
 
 # Session Manager
 ```shell
-$ forge script script/SessionManagerModule.s.sol:SessionManagerModuleScript --sig "deploy(address)" 0x7079253c0358eF9Fd87E16488299Ef6e06F403B6 --rpc-url $GNOSIS_MAINNET_RPC_URL --etherscan-api-key $GNOSIS_MAINNET_ETHERSCAN_API_KEY --verify --verifier-url $GNOSIS_ETHERSCAN_VERIFIER_URL --private-key $PRIVATE_KEY 
+$ forge script script/SessionManagerModule.s.sol:SessionManagerModuleScript --sig "deploy(address)" 0x7079253c0358eF9Fd87E16488299Ef6e06F403B6 --rpc-url $BERACHAIN_MAINNET_RPC_URL --verify --verifier etherscan --etherscan-api-key $ETHEREUM_MAINNET_ETHERSCAN_API_KEY --private-key $PRIVATE_KEY
 ```
 
 # Session Module Upgrade (v2)

@@ -1,0 +1,20 @@
+{
+  "lib/safe-smart-account": {
+    "rev": "bf943f80fec5ac647159d26161446ac5d716a294"
+  },
+  "lib/forge-std": {
+    "rev": "1714bee72e286e73f76e320d110e0eaf5c4e649d"
+  },
+  "lib/account-abstraction": {
+    "rev": "abff2aca61a8f0934e533d0d352978055fddbd96"
+  },
+  "lib/openzeppelin-contracts": {
+    "rev": "dbb6104ce834628e473d2173bbc9d47f81a9eec3"
+  },
+  "lib/openzeppelin-foundry-upgrades": {
+    "rev": "1f6690ab7e353d0e9e569235f81e2611c5b7097d"
+  },
+  "lib/openzeppelin-contracts-upgradeable": {
+    "rev": "723f8cab09cdae1aca9ec9cc1cfa040c2d4b06c1"
+  }
+}

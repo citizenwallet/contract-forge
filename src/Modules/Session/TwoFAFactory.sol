@@ -117,7 +117,7 @@ contract TwoFAFactory is SafeProxyFactory {
 			configureSafeData, // data
 			// address(0), // to
 			// "", // data
-			SafeSuiteLib.SAFE_TokenCallbackHandler_ADDRESS, // fallbackHandler
+			SafeSuiteLib.SAFE_CompatibilityFallbackHandler_ADDRESS, // fallbackHandler
 			address(0), // paymentToken
 			0, // payment
 			address(0) // paymentReceiver
